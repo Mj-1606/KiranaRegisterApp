@@ -45,7 +45,7 @@ public class KiranaServiceImpl implements KiranaService {
     transactionLock.lock();
      Account account= accountDao.findById(accountNo).get();
     transactionLock.unlock();
-      return account.getBalance();
+    return account.getBalance();
 
   }
   @Transactional
@@ -78,10 +78,11 @@ public class KiranaServiceImpl implements KiranaService {
         formattedDate,
         formattedTime);
     try {
-      Account account = accountDao.findById("12345").get();
+      Account account = accountDao.findById("12345").get(); // for now I am using only one account for store
         if (transactionDto.getType().equalsIgnoreCase("Debit")
             && account.getBalance() - transactionDto.getAmount() < 0) {
-          throw new InsufficientBalanceException("Insufficient Balance , transaction Failed");
+//          log.warn("Insufficient balance for transaction");
+          throw new InsufficientBalanceException("Insufficient Balance , transaction Failed");//custom exception
         }
 
         if(transactionDto.getCurrency().equalsIgnoreCase("usd")){

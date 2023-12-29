@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class test {
+public class CommonTest {
 
   @Autowired
   KiranaServiceImpl kiranaService;
@@ -17,5 +17,6 @@ public class test {
   void test(){
     Double inrValue=kiranaService.convertUSDToINR(20.0);
     System.out.println("converted value :  "+inrValue);
+//    Assertions.assertEquals(inrValue,1662.5815278339999); //as it is being updated realtime we cannot test this
   }
 }
