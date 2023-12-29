@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "4811c426-52b3-498e-a223-1c804de8fb6a",
+		"name": "KIranaApis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31395795"
+	},
+	"item": [
+		{
+			"name": "AddAccount",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountNo\": \"12345\",\r\n    \"balance\": 1000,\r\n    \"currency\": \"INR\"  //for now Account is INR based only\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9797/kirana/addAccount",
+					"host": [
+						"localhost"
+					],
+					"port": "9797",
+					"path": [
+						"kirana",
+						"addAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAccountBalance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9797/kirana/accountInfo/12345",
+					"host": [
+						"localhost"
+					],
+					"port": "9797",
+					"path": [
+						"kirana",
+						"accountInfo",
+						"12345"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RequestTransaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerName\": \"Mehul\",\r\n  \"productName\": \"Rice\",\r\n  \"customerAccountNo\": \"123456789\",\r\n  \"type\": \"credit\", // Credit or Debit\r\n  \"amount\": 1,\r\n  \"currency\" : \"USD\"  //USD or INR\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9797/kirana/transaction",
+					"host": [
+						"localhost"
+					],
+					"port": "9797",
+					"path": [
+						"kirana",
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
